@@ -18,6 +18,7 @@ the existing SR methods almost consider the information in local receptive field
 (2) For the second issue, following the first issue, we should preserve the low-frequency smoothes and reconstruct the high-frequency details as better as possible, which aims at reconstructing the residues (in architectures with global residual learning) using detail-fidelity features.
 
 ![Framework of DeFiAN](/Figs/Framework_DeFiAN.png)
+
 For these issues and to process the low-frequency smoothes and high-frequency details in a divide-and-conquer manner, we propose a purposeful and interpretable method to improve SR performance using Detail-Fidelity Attention in very deep Networks (DeFiAN). The major contributions of the proposed method are:
 
 (1) Introducing a detail-fidelity attention mechanism in each module of networks to adaptively improve the desired high-frequency details and preserve the low-frequency smoothes in a divide-and-conquer manner, which is purposeful for SISR task.
