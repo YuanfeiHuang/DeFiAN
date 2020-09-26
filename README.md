@@ -32,18 +32,20 @@ For these issues and to process the low-frequency smoothes and high-frequency de
 ## Train
 
 ## Test
-1. Replace the test dataset path '/mnt/Datasets/Test/'.
+1. Download models from [OneDrive](https://1drv.ms/u/s!ArdHek-3P6D-avrb8QJPrzqeU2c?e=Md84Tw) or [BaiduYun](https://pan.baidu.com/s/10fLcejD2N5nTnk-TUj9a_A)(password: 3vj9).
 
-2. run 'test.py'.
+2. Replace the test dataset path '/mnt/Datasets/Test/' with your datasets.
+
+3. run 'test.py'.
 
 ## Results
 ### Quantitative Results (PSNR/SSIM)
-![Quantitative Results](/Figs/Quantitative Results.png)
+![Quantitative Results](/Figs/Quantitative_Results.png)
 
 ### Qualitative Results
-![Fig.6](/Figs/Fig 6.png)
-![Fig.7](/Figs/Fig 7.png)
-![Fig.8](/Figs/Fig 8.png)
-![Fig.9](/Figs/Fig 9.png)
+![Fig.6](/Figs/Fig_6.png)
+![Fig.7](/Figs/Fig_7.png)
+![Fig.8](/Figs/Fig_8.png)
+![Fig.9](/Figs/Fig_9.png)
 
 ## Citation
