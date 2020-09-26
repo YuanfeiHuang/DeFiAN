@@ -47,6 +47,6 @@ For these issues and to process the low-frequency smoothes and high-frequency de
 ![Fig.6](/Figs/Fig_6.png)
 ![Fig.7](/Figs/Fig_7.png)
 ![Fig.8](/Figs/Fig_8.png)
-![Fig.9](/Figs/Fig_9.png)
+![Fig.9](/Figs/Fig_9.png) 
 
 ## Citation
