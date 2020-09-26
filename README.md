@@ -11,16 +11,22 @@ Yuanfei Huang, Jie Li, Xinbo Gao*, Yanting Hu and Wen Lu, "Interpretable Detail-
 5. [Citation](#citation)
 
 ## Introduction
-Benefiting from the strong capabilities of deep CNNs for feature representation and nonlinear mapping, deeplearning-based methods have achieved excellent performance in single image super-resolution. However, most existing SR methods depend on the high capacity of networks which is initially designed for visual recognition, and rarely consider the initial intention of super-resolution for detail fidelity. 
+the existing SR methods almost consider the information in local receptive fields where only 3x3 kernels of convolution are utilized to represent the local consistent details of feature. However, the collected LR images are full of low-frequency smoothes and high-frequency details, thus, it is natural to raise two issues: (1) It is difficult to learn a perfect convolutional operator, which is adaptive to the diverse characteristics of smoothes and details; (2) How to improve the ability to preserve the low-frequency smoothes and reconstruct the high-frequency details?
 
-Aiming at pursuing this intention, there are two challenging issues to be solved: 
+(1) For the first issue, since the low-frequency smoothes and high-frequency details have different characteristics of representation, and the ill-posed problem of SR is more sensitive to the fidelity of deficient details, it is better to solve it in a divide-and-conquer manner.
 
-(1) learning appropriate operators which is adaptive to the diverse characteristics of smoothes and details; 
+(2) For the second issue, following the first issue, we should preserve the low-frequency smoothes and reconstruct the high-frequency details as better as possible, which aims at reconstructing the residues (in architectures with global residual learning) using detail-fidelity features.
 
-(2) improving the ability of model to preserve the low-frequency smoothes and reconstruct the high-frequency details. 
+For these issues and to process the low-frequency smoothes and high-frequency details in a divide-and-conquer manner, we propose a purposeful and interpretable method to improve SR performance using Detail-Fidelity Attention in very deep Networks (DeFiAN), as ![Framework of DeFiAN](/Figs/psnr_bi_1.PNG) shows. The major contributions of the proposed method are:
 
-To solve them, we propose a purposeful and interpretable detail-fidelity attention network to progressively process these smoothes and details in divide-and-conquer manner, which is a novel and specific prospect of image super-resolution for the purpose on improving the detail fidelity, instead of blindly designing or employing
-the deep CNNs architectures for merely feature representation in local receptive fields. Particularly, we propose a Hessian filtering for interpretable feature representation which is highprofile for detail inference, a dilated encoder-decoder and a distribution alignment cell to improve the inferred Hessian features in morphological manner and statistical manner respectively. Extensive experiments demonstrate that the proposed methods achieve superior performances over the state-of-the-art methods quantitatively and qualitatively.
+(1) Introducing a detail-fidelity attention mechanism in each module of networks to adaptively improve the desired high-frequency details and preserve the low-frequency smoothes in a divide-and-conquer manner, which is purposeful for SISR task.
+
+(2) Proposing a novel multi-scale Hessian filtering (MSHF) to extract the multi-scale textures and details with the maximum eigenvalue of scaled Hessian features implemented using high-profile CNNs. Unlike the conventional CNN features in most existing SR methods, the proposed MSHF is interpretable and specific to improve detail fidelity. Besides, the proposed multi-scale and generic Hessian filtering are the first attempts for interpretable detail inference in SISR task, and could be implemented using GPU-accelerate CNNs without any calculation of intricate inverse of matrix.
+
+(3) Designing a dilated encoder-decoder (DiEnDec) for fusing the full-resolution contextual information of multi-scale Hessian features and inferring the detail-fidelity attention representations in a morphological erosion & dilation manner, which possesses characteristics of both full-resolution and progressively growing receptive fields.
+
+(4) Proposing a learnable distribution alignment cell (DAC) for adaptively expanding and aligning the attention representation under the prior distribution of referenced features in a statistical manner, which is appropriate for residual attention architectures.
+
 
 ## Train
 
@@ -30,6 +36,10 @@ the deep CNNs architectures for merely feature representation in local receptive
 2. run 'test.py'.
 
 ## Results
+### Quantitative Results (PSNR/SSIM)
+
+
+### Qualitative Results
 ![PSNR_SSIM_BI](/Figs/psnr_bi_1.PNG)
 
 ## Citation
