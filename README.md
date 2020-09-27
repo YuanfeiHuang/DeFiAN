@@ -1,4 +1,4 @@
-# DeFiAN: Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution
+# Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution (DeFiAN)
 This repository is for DeFiAN introduced in the following paper
 
 Yuanfei Huang, Jie Li, Xinbo Gao*, Yanting Hu and Wen Lu, "Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution", arXiv 2020.
