@@ -1,6 +1,7 @@
 # Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution (DeFiAN)
 This repository is for DeFiAN introduced in the following paper
 
+[paper](https://arxiv.org/abs/2009.13134)
 Yuanfei Huang, Jie Li, Xinbo Gao*, Yanting Hu and Wen Lu, "Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution", arXiv 2020.
 
 ## Contents
@@ -50,3 +51,22 @@ For these issues and to process the low-frequency smoothes and high-frequency de
 ![Fig.9](/Figs/Fig_9.png) 
 
 ## Citation
+```
+@ARTICLE{2020arXiv200913134H,
+       author = {{Huang}, Yuanfei and {Li}, Jie and {Gao}, Xinbo and {Hu}, Yanting and
+         {Lu}, Wen},
+        title = "{Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution}",
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning},
+         year = 2020,
+        month = sep,
+          eid = {arXiv:2009.13134},
+        pages = {arXiv:2009.13134},
+archivePrefix = {arXiv},
+       eprint = {2009.13134},
+ primaryClass = {cs.CV},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv200913134H},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+```
