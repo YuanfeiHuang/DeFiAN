@@ -34,7 +34,7 @@ For these issues and to process the low-frequency smoothes and high-frequency de
 ## Train
 
 ## Test
-1. Download models from [OneDrive](https://1drv.ms/u/s!ArdHek-3P6D-avrb8QJPrzqeU2c?e=Md84Tw) or [BaiduYun](https://pan.baidu.com/s/10fLcejD2N5nTnk-TUj9a_A)(password: 3vj9).
+1. Download models from [OneDrive](https://1drv.ms/u/s!ArdHek-3P6D-avrb8QJPrzqeU2c?e=Md84Tw), [Google Drive](https://drive.google.com/drive/folders/1C38IUUQCPlXcpmW_gki_IpWHGYMo7KL4?usp=sharing) or [BaiduYun](https://pan.baidu.com/s/10fLcejD2N5nTnk-TUj9a_A)(password: 3vj9).
 
 2. Replace the test dataset path '/mnt/Datasets/Test/' with your datasets.
 
