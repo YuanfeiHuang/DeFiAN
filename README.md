@@ -64,21 +64,4 @@ For these issues and to process the low-frequency smoothes and high-frequency de
   year={2021},
   publisher={IEEE}
 }
-@ARTICLE{2020arXiv200913134H,
-       author = {{Huang}, Yuanfei and {Li}, Jie and {Gao}, Xinbo and {Hu}, Yanting and
-         {Lu}, Wen},
-        title = "{Interpretable Detail-Fidelity Attention Network for Single Image Super-Resolution}",
-      journal = {arXiv e-prints},
-     keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning},
-         year = 2020,
-        month = sep,
-          eid = {arXiv:2009.13134},
-        pages = {arXiv:2009.13134},
-archivePrefix = {arXiv},
-       eprint = {2009.13134},
- primaryClass = {cs.CV},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2020arXiv200913134H},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-}
-
 ```
