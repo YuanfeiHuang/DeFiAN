@@ -184,13 +184,15 @@ def save_checkpoint(model, epoch, folder):
     torch.save(state, model_path)
     print("Checkpoint saved to {}".format(model_path))
 
-def load_checkpoint(resume, n_GPUs, model):
+def load_checkpoint(resume, n_GPUs, model, is_cuda=True):
     if os.path.isfile(resume):
         # from collections import OrderedDict
         new_checkpoint = model.state_dict()
         print("=> loading checkpoint '{}'".format(resume))
-        checkpoint = torch.load(resume, map_location={'cuda:1':'cuda:0'})
-        # checkpoint = torch.load(resume)
+        if is_cuda:
+            checkpoint = torch.load(resume, map_location={'cuda:1':'cuda:0'})
+        else:
+            checkpoint = torch.load(resume, map_location=lambda storage, loc: storage)
 
         start_epoch = checkpoint["epoch"] + 1
         if n_GPUs > 1:
@@ -215,36 +217,28 @@ def load_checkpoint(resume, n_GPUs, model):
                     new_checkpoint[k] = v
         model.load_state_dict(new_checkpoint)
     else:
-        print("=> no checkpoint found at '{}'".format(resume))
+        print("===> no checkpoint found at '{}'".format(resume))
         start_epoch = 1
     return start_epoch, model
 
 def print_args(args):
-    Hess = ''
     if args.attention:
-        Name = args.attention + '_H3&H5&H7-OnlyHess|DiEnDec-3to1|LAIN-x|Sigmoid-' + args.SkpConn + '-woTail'
-        Hess = '_Hess' + '-G64'
+        Name = 'DeFiAN'
     else:
-        Name = args.SkpConn
+        Name = 'RCAN'
+    args.degrad_name = '_x' + str(args.degrad['SR_scale'])
+    if args.degrad['B_kernel']:
+        args.degrad_name += '|B' + str(args.degrad['B_kernel']) + 'o' + str(args.degrad['B_sigma']) + '|'
+    if args.degrad['N_noise']:
+        args.degrad_name += '|N' + str(args.degrad['B_sigma']) + '|'
 
-    args.preload = False
-
-    args.model_path = 'Model-Long_FlickrDIV2K_x' + str(args.scale) + '_' + Name + '_In'+ str(args.patch_size) + '_BS' + str(args.batch_size) + '_lr' + str(args.lr)\
-                      + '_B' + str(args.n_blocks) + 'U' + str(args.n_units) + 'F' + str(args.n_feats)\
-                      + Hess
+    args.model_path = 'models/' + Name + args.degrad_name + '_PS'+ str(args.patch_size) + '_BS' + str(args.batch_size) + '_lr' + str(args.lr)\
+                      + '_N' + str(args.n_modules) + 'M' + str(args.n_blocks) + 'C' + str(args.n_channels)
 
     args.resume = args.model_path + '/Generator/model_epoch_' + str(args.start_epoch) +'.pth'
-    # args.resume = 'Model_FlickrDIV2K_x2_SRAGE_H3&H5&H7-OnlyHess|DiEnDec-3to1|LAIN-x|Sigmoid-RCAN-woTail_In32_BS16_lr0.0001_B5U10F32_Hess-G64' \
-    #               '/Generator/model_epoch_50.pth'
 
     args.result_path = []
     args.valid_path = []
-    for i in range(len(args.data_valid)):
-        args.result_path.append(
-            args.model_path + "/Results/" + 'Epoch' + str(args.best_epoch) + '/' + args.data_valid[i])
-        args.valid_path.append(args.dir_data + "/Test/" + args.data_valid[i] + '_LR_bicubic')
-        if not os.path.exists(args.result_path[i]):
-            os.makedirs(args.result_path[i])
     if not os.path.exists(args.model_path + '/Generator'):
         os.makedirs(args.model_path + '/Generator')
     print(args)
