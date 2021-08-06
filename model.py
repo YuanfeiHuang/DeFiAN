@@ -93,9 +93,9 @@ class MSHF(nn.Module):
                 m.weight.data[:, :, -1, 0] = -1
                 m.weight.data[:, :, -1, -1] = 1
 
-        # # Freeze the MeanShift layer
-        # for params in self.parameters():
-        #     params.requires_grad = False
+        # Freeze the MeanShift layer
+        for params in self.parameters():
+            params.requires_grad = False
 
     def forward(self, x):
         fxx = self.grad_xx(x)
