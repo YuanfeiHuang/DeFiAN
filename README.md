@@ -35,13 +35,19 @@ For these issues and to process the low-frequency smoothes and high-frequency de
 
 
 ## Train
+1. Replace the train dataset path '/mnt/Datasets/Train/' and validation dataset 'mnt/Datasets/Test/' with your training and validation datasets, respectively.
 
+3. Set the configuration '--train' in 'option.py' as 'True', and other configurations as you want.
+
+3. run 'main.py'.
 ## Test
 1. Download models from [OneDrive](https://1drv.ms/u/s!ArdHek-3P6D-avrb8QJPrzqeU2c?e=Md84Tw), [Google Drive](https://drive.google.com/drive/folders/1C38IUUQCPlXcpmW_gki_IpWHGYMo7KL4?usp=sharing) or [BaiduYun](https://pan.baidu.com/s/10fLcejD2N5nTnk-TUj9a_A)(password: 3vj9).
 
 2. Replace the test dataset path '/mnt/Datasets/Test/' with your datasets.
 
-3. run 'test.py'.
+3. Set the configuration '--train' in 'option.py' as 'False'
+
+3. run 'main.py'.
 
 ## Results
 ### Quantitative Results (PSNR/SSIM)
